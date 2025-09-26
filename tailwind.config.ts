@@ -47,6 +47,18 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Monastery-specific colors
+        monastery: {
+          red: "hsl(var(--monastery-red))",
+          gold: "hsl(var(--monastery-gold))",
+        },
+        prayer: {
+          blue: "hsl(var(--prayer-blue))",
+          white: "hsl(var(--prayer-white))",
+          red: "hsl(var(--prayer-red))",
+          green: "hsl(var(--prayer-green))",
+          yellow: "hsl(var(--prayer-yellow))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -58,12 +70,31 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      backgroundImage: {
+        'gradient-mountain': 'var(--gradient-mountain)',
+        'gradient-monastery': 'var(--gradient-monastery)',
+        'gradient-prayer-flags': 'var(--gradient-prayer-flags)',
+      },
+      boxShadow: {
+        'monastery': 'var(--shadow-monastery)',
+        'prayer': 'var(--shadow-prayer)',
+        'sacred': 'var(--shadow-sacred)',
+      },
+      animation: {
+        'prayer-wave': 'prayer-wave 8s ease-in-out infinite',
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        'prayer-wave': {
+          '0%, 100%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+        },
         "accordion-down": {
           from: {
             height: "0",
@@ -80,10 +111,6 @@ export default {
             height: "0",
           },
         },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },

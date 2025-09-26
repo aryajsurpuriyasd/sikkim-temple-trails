@@ -1,0 +1,79 @@
+{
+  "name": "Sikkim Monasteries - Cultural Heritage Portal",
+  "short_name": "Sikkim Monasteries",
+  "description": "Discover and explore the sacred monasteries of Sikkim with virtual tours, cultural guides, and offline access",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ea580c",
+  "background_color": "#fef7ed",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/placeholder.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/placeholder.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["travel", "culture", "tourism", "heritage"],
+  "screenshots": [
+    {
+      "src": "/placeholder.svg",
+      "sizes": "1280x720",
+      "type": "image/svg+xml",
+      "form_factor": "wide"
+    }
+  ],
+  "features": [
+    "offline-access",
+    "cross-platform",
+    "installable"
+  ],
+  "shortcuts": [
+    {
+      "name": "Explore Monasteries",
+      "short_name": "Monasteries",
+      "description": "Browse all sacred monasteries",
+      "url": "/#monasteries",
+      "icons": [
+        {
+          "src": "/placeholder.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Festival Calendar",
+      "short_name": "Festivals",
+      "description": "View upcoming festivals and events",
+      "url": "/#festivals",
+      "icons": [
+        {
+          "src": "/placeholder.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Trip Planner",
+      "short_name": "Plan Trip",
+      "description": "AI-powered trip planning",
+      "url": "/#planner",
+      "icons": [
+        {
+          "src": "/placeholder.svg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
