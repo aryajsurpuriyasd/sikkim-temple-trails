@@ -106,7 +106,7 @@ const MonasteryDetailsModal = ({
             Local Cuisine
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-            {localFood.map((food, index) => (
+            {(localFood || []).map((food, index) => (
               <Badge key={index} variant="secondary" className="text-xs justify-center">
                 {food}
               </Badge>
@@ -123,7 +123,7 @@ const MonasteryDetailsModal = ({
             Local Specialties
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-            {shopping.map((item, index) => (
+            {(shopping || []).map((item, index) => (
               <Badge key={index} variant="outline" className="text-xs justify-center">
                 {item}
               </Badge>
@@ -140,7 +140,7 @@ const MonasteryDetailsModal = ({
             Annual Events
           </h3>
           <div className="space-y-3">
-            {events.map((event, index) => (
+            {(events || []).map((event, index) => (
               <div key={index} className="border border-border rounded-lg p-3">
                 <div className="flex justify-between items-start mb-2">
                   <h4 className="font-medium text-sm">{event.name}</h4>
