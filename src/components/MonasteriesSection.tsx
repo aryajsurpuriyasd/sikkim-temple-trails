@@ -102,8 +102,27 @@ const MonasteriesSection = () => {
 
         {/* Monasteries Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {filteredMonasteries.map((monastery, index) => (
-            <MonasteryCard key={index} {...monastery} />
+      {filteredMonasteries.map((monastery, index) => (
+        <MonasteryCard 
+          key={index} 
+          {...monastery}
+          history={`This ancient monastery stands as a testament to Sikkim's rich Buddhist heritage. Built centuries ago by devoted monks, it has served as a spiritual sanctuary for generations of pilgrims and locals alike. The monastery has witnessed the rise and fall of kingdoms, the changing seasons of the Himalayas, and continues to preserve the sacred teachings and traditions that have been passed down through time. ${monastery.significance}`}
+          specialty={`Known for its unique architectural style that blends traditional Tibetan and local Sikkimese elements. The monastery houses rare manuscripts, ancient thangka paintings, and serves as a center for meditation and spiritual learning. Visitors are often amazed by the peaceful ambiance and the intricate details of the prayer wheels and stupas found throughout the complex.`}
+          localFood={["Momos", "Thukpa", "Gundruk", "Yak Cheese", "Chhurpi", "Sel Roti"]}
+          shopping={["Prayer Flags", "Singing Bowls", "Incense Sticks", "Buddhist Books", "Thangka Paintings", "Woolen Handicrafts"]}
+          events={[
+            {
+              name: "Annual Puja Ceremony",
+              date: "Full Moon Day",
+              description: "Sacred prayer ceremony with traditional chants, butter lamp lighting, and community feast shared among devotees."
+            },
+            {
+              name: "Monastery Festival",
+              date: "Winter Solstice",
+              description: "Three-day celebration featuring masked dances, cultural performances, and spiritual teachings by senior monks."
+            }
+          ]}
+        />
           ))}
         </div>
 
@@ -112,7 +131,7 @@ const MonasteriesSection = () => {
           <div className="bg-card rounded-lg p-8 border border-border max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold mb-4">Add More Monasteries</h3>
             <p className="text-muted-foreground mb-6">
-              Help us expand our collection of sacred sites. As the site owner, you can add more monasteries to showcase Sikkim's rich spiritual heritage.
+              Help us expand our collection of sacred sites. Only authorized administrators can add monasteries after proper authentication.
             </p>
             <Button 
               variant="monastery" 

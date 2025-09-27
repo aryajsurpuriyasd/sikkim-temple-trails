@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Mountain, Calendar, Hotel, MessageCircle, BookOpen, FileText, MapPin } from "lucide-react";
+import { Menu, X, Mountain, Calendar, MessageCircle, BookOpen, FileText, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,6 @@ const Header = () => {
   const navigationItems = [
     { name: "Monasteries", href: "#monasteries", icon: Mountain },
     { name: "Festivals", href: "#festivals", icon: Calendar },
-    { name: "Hotels", href: "#hotels", icon: Hotel },
     { name: "Trip Planner", href: "#planner", icon: MapPin },
     { name: "Blog", href: "#blog", icon: BookOpen },
     { name: "Guides", href: "#guides", icon: FileText },
@@ -18,6 +18,14 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+      {/* Top Language Bar */}
+      <div className="bg-muted/50 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="flex h-8 items-center justify-end">
+            <LanguageSelector />
+          </div>
+        </div>
+      </div>
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -53,14 +61,8 @@ const Header = () => {
             })}
           </nav>
 
-          {/* Language Selector & CTA */}
-          <div className="hidden md:flex items-center space-x-3">
-            <select className="text-sm bg-transparent border border-border rounded-md px-2 py-1">
-              <option value="en">English</option>
-              <option value="hi">हिंदी</option>
-              <option value="si">སིཀིམ་སྐད</option>
-              <option value="mr">मराठी</option>
-            </select>
+          {/* CTA */}
+          <div className="hidden md:flex items-center">
             <Button variant="monastery" size="sm">
               Plan Your Visit
             </Button>
@@ -98,12 +100,6 @@ const Header = () => {
               );
             })}
             <div className="px-4 pt-4 border-t border-border">
-              <select className="w-full text-sm bg-transparent border border-border rounded-md px-2 py-2 mb-3">
-                <option value="en">English</option>
-                <option value="hi">हिंदी</option>
-                <option value="si">སིཀིམ་སྐད</option>
-                <option value="mr">मराठी</option>
-              </select>
               <Button variant="monastery" className="w-full">
                 Plan Your Visit
               </Button>

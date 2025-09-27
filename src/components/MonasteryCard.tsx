@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Camera, Star, ExternalLink, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
+import MonasteryDetailsModal from "./MonasteryDetailsModal";
 
 interface MonasteryCardProps {
   name: string;
@@ -14,6 +15,15 @@ interface MonasteryCardProps {
   features: string[];
   rating: number;
   visitTime: string;
+  history: string;
+  specialty: string;
+  localFood: string[];
+  shopping: string[];
+  events: {
+    name: string;
+    date: string;
+    description: string;
+  }[];
   className?: string;
 }
 
@@ -27,6 +37,11 @@ const MonasteryCard = ({
   features,
   rating,
   visitTime,
+  history,
+  specialty,
+  localFood,
+  shopping,
+  events,
   className
 }: MonasteryCardProps) => {
   return (
@@ -109,10 +124,23 @@ const MonasteryCard = ({
           </Button>
         </div>
 
-        <Button variant="prayer" className="w-full mt-2 text-xs">
-          <ExternalLink className="w-3 h-3 mr-1" />
-          Explore Details
-        </Button>
+        <MonasteryDetailsModal
+          name={name}
+          image={image}
+          location={location}
+          founded={founded}
+          rating={rating}
+          history={history}
+          specialty={specialty}
+          localFood={localFood}
+          shopping={shopping}
+          events={events}
+        >
+          <Button variant="prayer" className="w-full mt-2 text-xs">
+            <ExternalLink className="w-3 h-3 mr-1" />
+            Explore Details
+          </Button>
+        </MonasteryDetailsModal>
       </CardContent>
     </Card>
   );
