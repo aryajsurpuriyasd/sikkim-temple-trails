@@ -57,12 +57,10 @@ const Footer = () => {
             <h4 className="font-semibold text-white mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
               {[
-                "Hotel Booking",
-                "Transport Booking",
-                "AI Trip Planner",
+                "Trip Planner", 
                 "Cultural Tours",
                 "Download Guides",
-                "SMS Booking"
+                "360° Virtual Tours"
               ].map((service, index) => (
                 <li key={index}>
                   <a href={`#${service.toLowerCase().replace(' ', '-')}`} className="text-white/70 hover:text-white transition-colors">
