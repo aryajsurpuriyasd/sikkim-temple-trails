@@ -108,26 +108,10 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Language Options */}
+        {/* App Features */}
         <div className="border-t border-white/20 pt-8 mb-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div>
-              <h4 className="font-semibold text-white mb-3">Available Languages</h4>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  { code: "en", name: "English" },
-                  { code: "hi", name: "हिंदी" },
-                  { code: "si", name: "སིཀིམ་སྐད" },
-                  { code: "mr", name: "मराठी" }
-                ].map((lang, index) => (
-                  <Button key={index} variant="outline" size="sm" className="border-white/20 text-white hover:bg-white hover:text-foreground">
-                    {lang.name}
-                  </Button>
-                ))}
-              </div>
-            </div>
-            
-            <div className="mt-6 md:mt-0">
+          <div className="flex justify-center">
+            <div className="text-center">
               <p className="text-sm text-white/70 mb-2">Download our app (Coming Soon)</p>
               <div className="flex gap-2">
                 <div className="bg-white/10 rounded-lg px-4 py-2 text-xs text-white/70">
