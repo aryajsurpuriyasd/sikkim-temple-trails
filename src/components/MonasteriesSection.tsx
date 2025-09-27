@@ -55,6 +55,17 @@ const MonasteriesSection = () => {
       features: ["Kanchenjunga Views", "Cham Dance", "Peaceful Gardens", "Traditional Murals", "Sacred Grove"],
       rating: 4.5,
       visitTime: "April to June, September to November"
+    },
+    {
+      name: "Gonjang Monastery",
+      description: "Ancient monastery perched on a scenic hillside, renowned for its spiritual teachings and meditation retreats. A center of Buddhist learning with rich cultural heritage.",
+      location: "Gonjang, West Sikkim",
+      founded: "1692",
+      image: monasteryEntranceImage,
+      significance: "One of the oldest monasteries in Sikkim, serving as a spiritual retreat center for centuries. Known for its ancient library and meditation caves.",
+      features: ["Ancient Library", "Meditation Caves", "Sacred Relics", "Traditional Art", "Himalayan Views"],
+      rating: 4.7,
+      visitTime: "March to June, September to November"
     }
   ];
 
