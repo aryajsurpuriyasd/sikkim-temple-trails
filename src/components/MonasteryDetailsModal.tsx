@@ -2,7 +2,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ExternalLink, MapPin, Calendar, Utensils, ShoppingBag, Sparkles, Camera, Star } from "lucide-react";
+import InteractiveMap from "./InteractiveMap";
+import WeatherWidget from "./WeatherWidget";
+import TransportInfo from "./TransportInfo";
 
 interface MonasteryDetailsModalProps {
   name: string;
@@ -35,6 +39,36 @@ const MonasteryDetailsModal = ({
   events,
   children
 }: MonasteryDetailsModalProps) => {
+  
+  // Get monastery coordinates and Google Maps links
+  const getMonasteryData = (monasteryName: string) => {
+    const monasteryData: { [key: string]: { coordinates: [number, number], googleMapsLink: string } } = {
+      'Rumtek Monastery': {
+        coordinates: [27.3389, 88.5583],
+        googleMapsLink: 'https://maps.app.goo.gl/9csc2PfkpiWSAwe26?g_st=awb'
+      },
+      'Enchey Monastery': {
+        coordinates: [27.3389, 88.6167],  
+        googleMapsLink: 'https://maps.app.goo.gl/ksoVDU5SinNwrdC1A?g_st=awb'
+      },
+      'Gonjang Monastery': {
+        coordinates: [27.3500, 88.6000],
+        googleMapsLink: 'https://maps.app.goo.gl/PTJPKZT3iHuHWRue7?g_st=awb'
+      },
+      'Pemayangtse Monastery': {
+        coordinates: [27.2833, 88.2167],
+        googleMapsLink: 'https://maps.app.goo.gl/gqCjAgXXp3pcCK3e7?g_st=awb'
+      },
+      'Tashiding Monastery': {
+        coordinates: [27.3167, 88.1500],
+        googleMapsLink: 'https://maps.app.goo.gl/JScMuqaSXQUpTzQX7?g_st=awb'
+      }
+    };
+
+    return monasteryData[monasteryName] || monasteryData['Rumtek Monastery'];
+  };
+
+  const monasteryData = getMonasteryData(name);
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -154,15 +188,51 @@ const MonasteryDetailsModal = ({
           </div>
         </section>
 
-        {/* Action Buttons */}
-        <div className="grid grid-cols-2 gap-3 mt-6">
-          <Button variant="monastery" className="flex items-center">
+        {/* Navigation Tabs */}
+        <Tabs defaultValue="directions" className="w-full mt-6">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="directions" className="flex items-center gap-2">
+              <MapPin className="w-4 h-4" />
+              Directions
+            </TabsTrigger>
+            <TabsTrigger value="weather" className="flex items-center gap-2">
+              <Camera className="w-4 h-4" />
+              Weather
+            </TabsTrigger>
+            <TabsTrigger value="transport" className="flex items-center gap-2">
+              <ExternalLink className="w-4 h-4" />
+              Transport
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="directions" className="mt-4 space-y-4">
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-monastery-red">Interactive Map & Directions</h3>
+              <InteractiveMap 
+                monastery={name}
+                coordinates={monasteryData.coordinates}
+                googleMapsLink={monasteryData.googleMapsLink}
+              />
+              <div className="text-sm text-muted-foreground text-center">
+                📍 Click the map marker for details • Use zoom controls • Click external link icon for Google Maps
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="weather" className="mt-4">
+            <WeatherWidget />
+          </TabsContent>
+
+          <TabsContent value="transport" className="mt-4">
+            <TransportInfo monasteryName={name} />
+          </TabsContent>
+        </Tabs>
+
+        {/* Action Button */}
+        <div className="mt-6">
+          <Button variant="monastery" className="w-full flex items-center justify-center">
             <Camera className="w-4 h-4 mr-2" />
             360° Virtual Tour
-          </Button>
-          <Button variant="outline" className="flex items-center">
-            <MapPin className="w-4 h-4 mr-2" />
-            Get Directions
           </Button>
         </div>
       </DialogContent>
